@@ -1,4 +1,4 @@
-// Sondagem linear
+// Hash Universal
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -7,15 +7,22 @@ template <typename I, size_t T>
 class HashSet
 {
 private:
-    size_t mod(const I &a, int b) { return ((a % b) + b) % b; }
-    size_t h(const I &K) { return mod(K, T); }
+    size_t mod(const I &a, int b)
+    {
+        auto r = a % b;
+        return r < 0 ? r + b : r;
+    }
+
+    size_t h(const I &K) { return mod(a * K + b, p); }
     size_t N(const I &K, size_t i) { return mod(h(K) + i, T); }
 
     vector<I> xs;
+    I p, a, b; // P deve ser primo e deve ser maior que T
     bitset<T> used;
 
 public:
-    HashSet() : xs(T) {}
+    HashSet(const I &pv) : xs(T), p(pv), a(rand() % (p - 1) + 1), b(rand() % p) {}
+
     bool insert(const I &K)
     {
         if (used.count() == T)

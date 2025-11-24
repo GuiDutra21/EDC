@@ -1,3 +1,4 @@
+// Hash Duplo
 #include <bits/stdc++.h>
 
 using namespace std;

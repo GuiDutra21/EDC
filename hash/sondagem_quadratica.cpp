@@ -1,6 +1,13 @@
+// Sondagem quadratica
 #include <bits/stdc++.h>
 
 using namespace std;
+
+
+// A sondagem quadratica pode ser interpretada como a sequencia
+// h(K) + i^2, h(K) −i^2, h(K) + (i + 1)^2, h(K) −(i + 1)^2, . . .
+// Se T for um n ́umero primo da forma 4k + 3, 
+// a sequencia acima passa por todas as posicoes da tabela (Radke, 1970)
 
 template <typename I, size_t T>
 class HashSet
